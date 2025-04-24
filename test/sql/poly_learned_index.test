@@ -1,0 +1,23 @@
+# name: test/sql/poly_learned_index.test
+# description: test poly_learned_index extension
+# group: [poly_learned_index]
+
+# Before we load the extension, this will fail
+statement error
+SELECT poly_learned_index('Sam');
+----
+Catalog Error: Scalar Function with name poly_learned_index does not exist!
+
+# Require statement will ensure this test is run with this extension loaded
+require poly_learned_index
+
+# Confirm the extension works
+query I
+SELECT poly_learned_index('Sam');
+----
+PolyLearnedIndex Sam 🐥
+
+query I
+SELECT poly_learned_index_openssl_version('Michael') ILIKE 'PolyLearnedIndex Michael, my linked OpenSSL version is OpenSSL%';
+----
+true

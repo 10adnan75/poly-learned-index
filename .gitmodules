@@ -6,3 +6,6 @@
 	path = extension-ci-tools
 	url = https://github.com/duckdb/extension-ci-tools
 	branch = main
+[submodule "src/POLY-ALEX"]
+	path = src/POLY-ALEX
+	url = https://github.com/10adnan75/POLY-ALEX.git
